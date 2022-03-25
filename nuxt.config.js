@@ -72,8 +72,8 @@ export default {
   auth: {
     strategies: {
       auth0: {
-        domain: process.env.AUTH_DOMAIN,
-        clientId: process.env.AUTH_CLIENT,
+        domain: this.$config.domain,
+        clientId: this.$config.clientId,
       }
     }
   },
