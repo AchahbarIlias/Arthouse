@@ -1,3 +1,4 @@
+require('dotenv').config();
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -61,8 +62,8 @@ export default {
   auth: {
     strategies: {
       auth0: {
-        domain: 'planet-io.eu.auth0.com',
-        clientId: 'Zp066T4wEYBSswNb6aWS0uj2GAJMQMQm',
+        domain: process.env.AUTH_DOMAIN,
+        clientId: process.env.AUTH_CLIENT,
       }
     }
   },
