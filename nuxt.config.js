@@ -1,4 +1,6 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: `${__dirname}/.env`
+});
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
