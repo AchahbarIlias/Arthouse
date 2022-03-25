@@ -1,6 +1,7 @@
-require('dotenv').config({
-  path: `${__dirname}/.env`
-});
+const path = require('path');
+const dotenv = require('dotenv');
+
+dotenv.config({ path: path.resolve(process.cwd(), './.env') });
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -62,16 +63,16 @@ export default {
     port: process.env.PORT || 8080,
   },
 
-  privateRuntimeConfig: {
-    domain: process.env.AUTH_DOMAIN,
-    clientId: process.env.AUTH_CLIENT,
+  publicRuntimeConfig: {
+    AUTH_DOMAIN: process.env.AUTH_DOMAIN,
+    AUTH_CLIENT: process.env.AUTH_CLIENT,
   },
 
   auth: {
     strategies: {
       auth0: {
         domain: process.env.AUTH_DOMAIN,
-        clientId: process.env.AUTH_CLIENT,
+        // clientId: process.env.AUTH_CLIENT,
       }
     }
   },
