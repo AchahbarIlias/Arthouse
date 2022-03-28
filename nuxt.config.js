@@ -1,7 +1,4 @@
-const path = require('path');
-const dotenv = require('dotenv');
-
-dotenv.config({ path: path.resolve(process.cwd(), './.env') });
+require('dotenv').config()
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
