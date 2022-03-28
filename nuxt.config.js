@@ -72,7 +72,7 @@ export default {
     strategies: {
       auth0: {
         domain: 'planet-io.eu.auth0.com',
-        // clientId: process.env.AUTH_CLIENT,
+        client_id: 'Zp066T4wEYBSswNb6aWS0uj2GAJMQMQm',
       }
     }
   },
