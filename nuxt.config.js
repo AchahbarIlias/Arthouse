@@ -40,6 +40,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/dotenv',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -71,8 +72,8 @@ export default {
   auth: {
     strategies: {
       auth0: {
-        domain: 'planet-io.eu.auth0.com',
-        client_id: 'Zp066T4wEYBSswNb6aWS0uj2GAJMQMQm',
+        domain: process.env.AUTH_DOMAIN,
+        client_id: process.env.AUTH_CLIENT,
       }
     }
   },
