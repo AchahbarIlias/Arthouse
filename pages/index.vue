@@ -29,9 +29,7 @@ export default {
     toLogin() {
       const { AUTH_DOMAIN, AUTH_CLIENT } = this.$config;
       console.log(AUTH_DOMAIN, AUTH_CLIENT);
-      this.$auth.loginWith('auth0', { params: {
-        client_id: AUTH_CLIENT,
-      }})
+      this.$auth.loginWith('auth0')
     },
   },
 }

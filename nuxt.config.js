@@ -70,7 +70,7 @@ export default {
     strategies: {
       auth0: {
         domain: process.env.AUTH_DOMAIN,
-        client_id: process.env.AUTH_CLIENT,
+        clientId: process.env.AUTH_CLIENT,
       }
     }
   },
