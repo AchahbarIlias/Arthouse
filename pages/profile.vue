@@ -1,22 +1,19 @@
 <template>
-  <div v-if="this.$auth.loggedIn">
-      <Navigation />
+  <div>
       <ul>
-          <img :src="this.$auth.user.picture" alt="profile_pic">
-          <li>{{this.$auth.user.nickname}}</li>
-          <li>{{this.$auth.user.name}}</li>
-          <li>{{this.$auth.user.email}}</li>
+          <li>{{user.username}}</li>
+          <li>{{user.email}}</li>
       </ul>
   </div>
 </template>
 
 <script>
 export default {
-    mounted() {
-        if (!this.$auth.loggedIn) {
-            this.$router.push('/');
+    data() {
+        return {
+           user: this.$store.state.user,
         }
-    }
+    },
 }
 </script>
 

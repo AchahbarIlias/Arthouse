@@ -1,12 +1,10 @@
-require('dotenv').config()
-
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'frontend',
+    title: 'Arthouse',
     htmlAttrs: {
       lang: 'en'
     },
@@ -44,7 +42,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next',
+    // '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -61,20 +59,15 @@ export default {
     port: process.env.PORT || 8080,
   },
 
-  publicRuntimeConfig: {
-    AUTH_DOMAIN: process.env.AUTH_DOMAIN,
-    AUTH_CLIENT: process.env.AUTH_CLIENT,
-  },
-
-  auth: {
-    strategies: {
-      auth0: {
-        clientId: 'Zp066T4wEYBSswNb6aWS0uj2GAJMQMQm',
-        domain: 'planet-io.eu.auth0.com',
-      }
-    }
-  },
+  // auth: {
+  //   strategies: {
+  //     auth0: {
+  //       clientId: 'Zp066T4wEYBSswNb6aWS0uj2GAJMQMQm',
+  //       domain: 'planet-io.eu.auth0.com',
+  //     }
+  //   }
+  // },
   router: {
-    middleware: ['auth']
+    middleware: 'auth'
   }
 }

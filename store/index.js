@@ -1,10 +1,11 @@
 export const state = () => ({
   cart: [],
+  user: {},
 })
 
 export const mutations = {
   addToCart(state, product) {
-    if(!state.cart.find(p => p.id === product.id)) {
+    if(!state.cart.find(p => p.ProductID === product.ProductID)) {
       state.cart.push(product)
     }
     else {
@@ -13,21 +14,21 @@ export const mutations = {
     }
   },
   removeFromCart(state, id) {
-    state.cart = state.cart.filter(product => product.id !== id)
+    state.cart = state.cart.filter(p => p.ProductID !== id)
   },
+  setUser(state, user) {
+    state.user = user
+  }
 }
 
 export const actions = {
-  // setUser({ commit }, user) {
-  //   commit('setUser', user)
-  // },
-  // setToken({ commit }, token) {
-  //   commit('setToken', token)
-  // }
   addToCart({ commit }, product) {
     commit('addToCart', product)
   },
   removeFromCart({ commit }, id) {
     commit('removeFromCart', id)
-  }
+  },
+  setUser({ commit }, user) {
+    commit('setUser', user)
+  },
 }

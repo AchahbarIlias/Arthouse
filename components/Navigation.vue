@@ -10,13 +10,13 @@
             <div class="lg:flex flex-row hidden font-fnt text-3xl justify-between items-center gap-8 uppercase">
                 <NuxtLink :to="{ name: 'index' }" class="text-txt border-b-2 border-high hover:border-ctn">Home</NuxtLink>
                 <NuxtLink :to="{ name: 'galery' }" class="text-txt border-b-2 border-high hover:border-ctn">Galery</NuxtLink>
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="this.$auth.loggedIn" v-on:click="gotToCart()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="isLoggedIn === 'true'" v-on:click="gotToCart()">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="this.$auth.loggedIn" v-on:click="goToProfile()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="isLoggedIn === 'true'" v-on:click="goToProfile()">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="this.$auth.loggedIn" v-on:click="logout()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="isLoggedIn === 'true'" v-on:click="logout()">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                 </svg>
             </div>
@@ -25,13 +25,13 @@
                             <NuxtLink :to="{ name: 'index' }" class="text-txt border-b-2 border-high hover:border-ctn">Home</NuxtLink>
                 <NuxtLink :to="{ name: 'galery' }" class="text-txt border-b-2 border-high hover:border-ctn">Galery</NuxtLink>
                 <div class="flex flex-row justify-around gap-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="this.$auth.loggedIn" v-on:click="gotToCart()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="isLoggedIn === 'true'" v-on:click="gotToCart()">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="this.$auth.loggedIn" v-on:click="goToProfile()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="isLoggedIn === 'true'" v-on:click="goToProfile()">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="this.$auth.loggedIn" v-on:click="logout()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-txt h-12 w-12 cursor-pointer hover:text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" v-if="isLoggedIn === 'true'" v-on:click="logout()">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                 </svg>
                 </div>
@@ -43,12 +43,15 @@
 export default {
     data() {
         return {
-            showMenu: false
+            showMenu: false,
+            isLoggedIn: sessionStorage.getItem('isLoggedIn').toString(),
         }
     },
     methods: {
         logout() {
-            this.$auth.logout();
+            sessionStorage.removeItem('token');
+            sessionStorage.setItem('isLoggedIn', false);
+            this.$router.push('/')
         },
         gotToCart() {
             this.$router.push('/cart');

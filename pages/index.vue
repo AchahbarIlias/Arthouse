@@ -1,9 +1,8 @@
 <template>
 <div>
-  <Navigation />
   <div class="mx-auto mt-20">
-    <section class="flex flex-row justify-between gap-4">
-      <div class="flex flex-col justify-center items-center w-full gap-4" v-if="!this.$auth.loggedIn">
+    <section class="flex flex-row justify-between gap-4" v-if="isLoggedIn === 'false'">
+      <div class="flex flex-col justify-center items-center w-full gap-4">
         <h2 class="text-3xl font-fnt">Artist</h2>
         <p>Are you a digital artist and you want to sell your digital art?</p>
         <button class="bg-txt text-ctn px-6 py-2.5 hover:bg-active uppercase rounded-sm font-bold" v-on:click="toLogin()">Login</button>
@@ -18,18 +17,16 @@
 <script>
 
 export default {
-  auth: false,
+  layout: 'default',
   data() {
     return {
-
+      isLoggedIn: sessionStorage.getItem('isLoggedIn').toString(),
     }
   },
 
   methods: {
     toLogin() {
-      const { AUTH_DOMAIN, AUTH_CLIENT } = this.$config;
-      console.log(AUTH_DOMAIN, AUTH_CLIENT);
-      this.$auth.loginWith('auth0')
+      this.$router.push('/login');
     },
   },
 }

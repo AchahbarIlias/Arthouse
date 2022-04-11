@@ -1,6 +1,5 @@
 <template>
   <div>
-      <Navigation />
       <div class="container mx-auto w-full mt-12">
           <p>total price: {{total}}</p>
           <div class="flex flex-col justify-center items-center w-full gap-4">
@@ -8,9 +7,9 @@
                   <img src="../assets/boring.jpg" alt="">
                   <div class="bg-ctn flex flex-col lg:w-96 w-full justify-between">
                       <div class="p-4">
-                        <h3 class="font-fnt text-3xl">{{item.name}}</h3>
-                        <p>{{item.description}}</p>
-                        <p>{{item.artist}}</p>
+                        <h3 class="font-fnt text-3xl">{{item.ProductName}}</h3>
+                        <p>{{item.ProductDesc}}</p>
+                        <p>{{item.ProductOwner}}</p>
                       </div>
                       <div>
                                   <div class="flex flex-row items-center p-4">
@@ -19,9 +18,9 @@
                 <path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" />
                 <path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z" />
             </svg>
-            <p class="text-lg">{{item.price}}</p>
+            <p class="text-lg">{{item.ProductPrice}}</p>
           </div>
-                        <button class="bg-txt text-ctn px-6 py-2.5 hover:bg-active uppercase rounded-sm font-bold w-full" v-on:click="removeFromCart(item.id)">Remove from cart</button>
+                        <button class="bg-txt text-ctn px-6 py-2.5 hover:bg-active uppercase rounded-sm font-bold w-full" v-on:click="removeFromCart(item.ProductID)">Remove from cart</button>
                       </div>
                   </div>
               </div>
@@ -45,7 +44,8 @@ export default {
         calcTotal() {
             this.total = 0;
             this.$store.state.cart.forEach(cart => {
-                this.total += cart.price;
+                var price = parseFloat(cart.ProductPrice);
+                this.total += price;
             });
         }
     },
